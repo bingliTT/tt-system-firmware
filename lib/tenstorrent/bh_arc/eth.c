@@ -459,6 +459,14 @@ static void SerdesEthInit(void)
 		return;
 	}
 
+	rc = tt_boot_fs_find_fd_by_tag(flash, ETH_ALT_SD_FW_TAG, &tag_fd);
+	if (rc < 0) {
+		LOG_ERR("%s(%s) failed: %d", "tt_boot_fs_find_fd_by_tag", ETH_ALT_SD_FW_TAG, rc);
+		return;
+	}
+	alt_image_size = tag_fd.flags.f.image_size;
+	alt_spi_address = tag_fd.spi_addr;
+
 	/* Load fw */
 	for (uint8_t serdes_inst = 0; serdes_inst < 6; serdes_inst++) {
 		if (IS_BIT_SET(load_serdes, serdes_inst)) {

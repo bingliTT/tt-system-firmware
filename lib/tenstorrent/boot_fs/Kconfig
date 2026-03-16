@@ -10,3 +10,5 @@ config TT_BOOT_FS_IMAGE_COUNT_MAX
 	int "Maximum number of file descriptors"
 	default 32
 	depends on TT_BOOT_FS
+	help
+	  Maximum number of filesystem images.
