@@ -15,6 +15,15 @@ Major enhancements with this release include:
 ### Power & Performance Improvements
 - Enable process based V/F curve for p300c
 
+### Ethernet
+
+- Updated Blackhole ERISC FW to v1.12.0
+  - Added support for alternative SerDes link speeds (95G, 106G)
+  - Reworked runtime link check and recovery logic
+    - Replaced recovery branches with an exponential-backoff escalator: SerDes retrain -> full reinit -> bring port down
+    - Added port-down auto-recovery via a sustained-sigdet counter; link-from port down now only happens during retrains
+  - Refactored eth_api_table so every API has a wrapper that records call count, last call timestamp, and time spent in function
+
 ## Grendel
 
 <!-- Subsections can break down improvements by (area or board) -->
