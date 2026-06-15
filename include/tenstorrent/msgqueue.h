@@ -609,6 +609,8 @@ enum eth_reset_err {
 	ETH_RESET_ERR_CFG_LOOKUP = 6,
 	ETH_RESET_ERR_CFG_SIZE = 7,
 	ETH_RESET_ERR_CFG_LOAD = 8,
+	ETH_RESET_ERR_SERDES_CFG_LOOKUP = 9,
+	ETH_RESET_ERR_SERDES_CFG_LOAD = 10,
 };
 
 /** @brief Host request to trigger a chip reset
